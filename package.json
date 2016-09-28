@@ -1,0 +1,23 @@
+{
+  "name": "cellular-automata",
+  "version": "1.0.0",
+  "description": "life game, as demonstration of cellular automata",
+  "main": "index.html",
+  "scripts": {
+    "test": "test.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lizy14/cellular-automata.git"
+  },
+  "author": "Zhaoyang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lizy14/cellular-automata/issues"
+  },
+  "homepage": "https://github.com/lizy14/cellular-automata#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.0"
+  }
+}

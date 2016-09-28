@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./node_modules/mocha/mocha.css">
+</head>
+
+<body>
+    <div id="mocha"></div>
+    <script src="./node_modules/mocha/mocha.js"></script>
+    <script>
+        mocha.setup('bdd');
+    </script>
+    <script src="./node_modules/chai/chai.js"></script>
+    <script>
+        var assert = chai.assert;
+    </script>
+
+    <script src="map.js"></script>
+    <script src="logic.js"></script>
+    <script src="display.js"></script>
+    <script src="timing.js"></script>
+    <script src="utilities.js"></script>
+    <script src="tests.js"></script>
+    <script>
+        mocha.run();
+    </script>
+</body>
+
+</html>
