@@ -1,6 +1,8 @@
 # cellular-automata
 This is an assignment for the course _Software Engineering_.
 
+http://static.nullspace.cn/cellular-automata
+
 By Zhaoyang, 2014013432.
 
 ## how to play

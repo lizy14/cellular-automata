@@ -15,17 +15,26 @@ function create_table() {
     document.getElementById('wrapper').innerHTML = theader + tbody + tfooter;
 }
 
-function draw_map(){
-    document.getElementById('living_now').innerText = g_map.count_living_cells();
-    
-    range(g_map._width).forEach(function(x){
-        range(g_map._height).forEach(function(y){
+function draw_map() {
+    var living = g_map.count_living_cells();
+    document.getElementById('living_now').innerText = living;
+
+    range(g_map._width).forEach(function(x) {
+        range(g_map._height).forEach(function(y) {
             var cell = document.getElementById('cell_' + x + '_' + y);
-            if(g_map.getCell(x, y)){
+            if (g_map.getCell(x, y)) {
                 cell.style.background = 'black';
-            }else{
+            } else {
                 cell.style.background = 'white';
             }
         })
-    })
+    });
+
+
+    var data = {
+        one: living
+    };
+
+    graph.series.addData(data);
+    graph.render();
 }

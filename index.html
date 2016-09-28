@@ -2,15 +2,18 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./node_modules/mocha/mocha.css">
     <title>Cellular Automata Demonstration</title>
+
+
+    <script src="lib/d3.v3.js"></script>
+    <script src="lib/rickshaw.js"></script>
+
 
     <script src="scripts/utilities.js"></script>
     <script src="scripts/map.js"></script>
     <script src="scripts/logic.js"></script>
     <script src="scripts/display.js"></script>
     <script src="scripts/main.js"></script>
-
     <style>
         body {
             font-family: monospace;
@@ -28,6 +31,7 @@
             position: fixed;
             right: 2em;
             width: 30%;
+            min-width: 300px;
         }
 
         span {
@@ -42,17 +46,14 @@
         <p>
             <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway's Game of Life</a><br />
             <b>Cellular automata demonstration</b><br /> By Zhaoyang
-
         </p>
         <p>
             <b>Map</b>
             <ul>
-
-                Width&nbsp; <input id="rows" /> <br /> Height <input id="cols" /> <br />
+                Width&nbsp;<input id="rows" /> <br />
+                Height<input id="cols" /> <br />
                 <button onclick="resize();">Resize</button>
-
             </ul>
-
         </p>
         <p>
             <b>Cells</b>
@@ -67,15 +68,31 @@
                 </li>
             </ul>
         </p>
-        <p>
+        <p><button id="toggle" onclick="toggle();">Start</button></p>
+        <p>Time elapsed: <span id="time">0</span>. Surviving cells: <span id="living_now"></span>.</p>
+        <div id="content">
+            <div id="chart"></div>
+            <script>
+                var tv = 250;
 
-            <button id="toggle" onclick="toggle();">Start</button>
-        </p>
-        <p>
-            Time elapsed: <span id="time">0</span>. </p>
-        <p>
-            Number of surviving cells: <span id="living_now"></span>.
-        </p>
+                // instantiate our graph!
+                var graph = new Rickshaw.Graph({
+                    element: document.getElementById("chart"),
+                    width: 300,
+                    height: 150,
+                    renderer: 'line',
+                    series: new Rickshaw.Series.FixedDuration([{
+                        name: 'one'
+                    }], undefined, {
+                        timeInterval: tv,
+                        maxDataPoints: 100,
+                        timeBase: new Date().getTime() / 1000
+                    })
+                });
+
+                graph.render();
+            </script>
+        </div>
     </div>
 
 
