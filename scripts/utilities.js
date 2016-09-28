@@ -9,7 +9,7 @@ function range(n) {
 
 function clone(obj) {
     //deep copy
-    //refreence: http://stackoverflow.com/a/5344074
+    //refrence: http://stackoverflow.com/a/5344074
     return JSON.parse(JSON.stringify(obj));
 }
 
