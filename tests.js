@@ -37,12 +37,12 @@ describe('utilities', function() {
 describe('map', function() {
     it('should have certain methods', function() {
         var _map = new map;
-		assert.equal(typeof _map, 'object');
+        assert.equal(typeof _map, 'object');
         assert.isFunction(_map.setCell);
         assert.isFunction(_map.getCell);
         assert.isFunction(_map.update);
         assert.isFunction(_map.randomize);
-		assert.isFunction(_map.count_living_cells);
+        assert.isFunction(_map.count_living_cells);
     });
     it('should have default size of 10x10', function() {
         var _map = new map;
@@ -56,7 +56,7 @@ describe('map', function() {
         assert.isUndefined(_map.getCell(5, 5));
         _map.update();
         assert.isTrue(_map.getCell(5, 5));
-		assert.equal(1, _map.count_living_cells_in_neighboorhood(5, 4));
+        assert.equal(1, _map.count_living_cells_in_neighboorhood(5, 4));
     });
     it('should handle out-of-range coordinates flawlessly', function() {
         var _map = new map;
@@ -65,7 +65,7 @@ describe('map', function() {
         _map.update();
         assert.isTrue(_map.getCell(-15, 55));
         assert.isTrue(_map.getCell(2335, 2336));
-		assert.equal(2, _map.count_living_cells_in_neighboorhood(4, 5));
+        assert.equal(2, _map.count_living_cells_in_neighboorhood(4, 5));
     });
     it('should have a working randomlize method', function() {
         [0, 10, 23, 88, 100].forEach(function(n) {
