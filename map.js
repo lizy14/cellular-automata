@@ -30,8 +30,8 @@ function map(w, h) {
         count_living_cells: function() {
             var _this = this;
             var alive_count = 0;
-            range(10).forEach(function(x) {
-                range(10).forEach(function(y) {
+            range(_this._width).forEach(function(x) {
+                range(_this._height).forEach(function(y) {
                     if (_this.getCell(x, y))
                         alive_count++;
                 });

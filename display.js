@@ -16,6 +16,8 @@ function create_table() {
 }
 
 function draw_map(){
+    document.getElementById('living_now').innerText = g_map.count_living_cells();
+    
     range(g_map._width).forEach(function(x){
         range(g_map._height).forEach(function(y){
             var cell = document.getElementById('cell_' + x + '_' + y);
