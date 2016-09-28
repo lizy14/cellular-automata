@@ -5,6 +5,7 @@ function map(w, h) {
     var x = new Array(w);
     for (var i = 0; i < w; i++) {
         x[i] = new Array(h);
+
     };
 
     return {
@@ -26,18 +27,18 @@ function map(w, h) {
             y %= h;
             this._new_map[x][y] = status;
         },
-        count_living_cells: function(){
+        count_living_cells: function() {
             var _this = this;
-        	var alive_count = 0;
-        	range(10).forEach(function(x) {
-        		range(10).forEach(function(y) {
-        			if (_this.getCell(x, y))
-        				alive_count++;
-        		});
-        	});
-        	return alive_count;
+            var alive_count = 0;
+            range(10).forEach(function(x) {
+                range(10).forEach(function(y) {
+                    if (_this.getCell(x, y))
+                        alive_count++;
+                });
+            });
+            return alive_count;
         },
-        count_living_cells_in_neighboorhood: function(x, y){
+        count_living_cells_in_neighboorhood: function(x, y) {
             var _this = this;
             var neighboor_count = 0;
             [-1, 0, 1].forEach(function(dx) {
@@ -68,6 +69,8 @@ function map(w, h) {
                 var _y = Math.floor(index / _this._width);
                 if (val) {
                     _this.setCell(_x, _y, true);
+                } else {
+                    _this.setCell(_x, _y, undefined);
                 }
             })
             this.update();

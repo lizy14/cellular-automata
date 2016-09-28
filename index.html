@@ -1,0 +1,89 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./node_modules/mocha/mocha.css">
+    <title>Cellular Automata Demonstration</title>
+
+    <script src="utilities.js"></script>
+    <script src="map.js"></script>
+    <script src="logic.js"></script>
+    <script src="display.js"></script>
+    <script src="main.js"></script>
+
+    <style>
+        body {
+            font-family: monospace;
+            margin: 2em;
+        }
+
+        td {
+            width: 10px;
+            height: 10px;
+            padding: 0;
+            border: 1px dotted grey;
+        }
+
+        div.control {
+            position: fixed;
+            right: 2em;
+            width: 30%;
+        }
+
+        span {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="control">
+        <p>
+            <b>Cellular automata demonstration</b> by Zhaoyang
+        </p>
+        <p>
+            <b>Map</b>
+            <ul>
+
+                Width&nbsp; <input id="rows" /> <br /> Height <input id="cols" /> <br />
+                <button onclick="resize();">Resize</button>
+
+            </ul>
+
+        </p>
+        <p>
+            <b>Cells</b>
+            <ul>
+                <li>
+                    Click on a cell to kill or revive it.
+                </li>
+                <li>
+                    You may also specify the number of living cells: <br />
+                    <input id="living" />
+                    <button onclick="randomize();">Randomize</button>
+                </li>
+            </ul>
+        </p>
+        <p>
+
+            <button id="toggle" onclick="toggle();">Start</button>
+        </p>
+        <p>
+            Time elapsed: <span id="time">0</span>. </p>
+        <p>
+            Number of surviving cells: <span id="living_now"></span>.
+        </p>
+    </div>
+
+
+    <div id="wrapper"></div>
+
+    <script>
+        resize();
+        randomize();
+    </script>
+
+</body>
+
+</html>
